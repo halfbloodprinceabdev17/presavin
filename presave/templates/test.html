@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Post Data</title>
+</head>
+<body>
+    <h1>Post Data to Server</h1>
+    <input type="text" id="spending_trend" placeholder="Enter spending trend"><br>
+    <input type="number" id="pre_saving_goal" placeholder="Enter saving goal"><br>
+    <input type="number" id="budget" placeholder="Enter budget"><br>
+    <button id="submitBtn">Submit</button>
+
+    <script>
+        document.getElementById('submitBtn').addEventListener('click', () => {
+            const url = "http://127.0.0.1:8000/analyze-trends/";
+            const data = {
+                spending_trend: document.getElementById('spending_trend').value,
+                pre_saving_goal: parseFloat(document.getElementById('pre_saving_goal').value),
+                budget: parseFloat(document.getElementById('budget').value)
+            };
+
+            fetch(url, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Success:', data);
+                alert('Data posted successfully!');
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+                alert('Failed to post data.');
+            });
+        });
+    </script>
+</body>
+</html>

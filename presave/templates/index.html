@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock Tracker</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <h1>Stock Tracker</h1>
+    <form id="stock-form">
+        <input type="text" name="stock_name" placeholder="Enter Stock Symbol (e.g., AAPL, RELIANCE.NS)" required>
+        <button type="submit">Search</button>
+    </form>
+    <div id="result">
+        <h2 id="stock-title"></h2>
+        <p id="stock-price"></p>
+        <div id="growth-rates">
+            <p><strong>1-Year Growth:</strong> <span id="growth-1y"></span></p>
+            
+        </div>
+
+    </div>
+    <script src="/static/js/script.js"></script>
+</body>
+</html>
